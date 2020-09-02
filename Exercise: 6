@@ -1,0 +1,16 @@
+For each maker producing laptops with a hard drive capacity of 10 Gb or higher, 
+find the speed of such laptops. Result set: maker, speed.
+
+#1
+
+SELECT DISTINCT product.maker, speed
+FROM product, laptop
+WHERE product.model = laptop.model
+  AND laptop.hd >= 10
+
+#2 (explicit join operator)
+
+SELECT DISTINCT product.maker, laptop.speed
+FROM product join
+  Laptop ON product.model = laptop.model
+WHERE laptop.hd >=10
